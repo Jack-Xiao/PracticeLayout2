@@ -2,6 +2,7 @@ package com.hencoder.hencoderpracticelayout2.practice;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import com.hencoder.hencoderpracticelayout2.PM25View;
 
@@ -17,6 +18,9 @@ import static android.view.View.MeasureSpec.EXACTLY;
  */
 
 public class PM25View_Practice_Exactly_MatchParent extends PM25View {
+    public static final String TAG = "PM_MATCH_PARENT_TAG";
+    private int count = 0;
+
     public PM25View_Practice_Exactly_MatchParent(Context context) {
         super(context);
     }
@@ -44,8 +48,8 @@ public class PM25View_Practice_Exactly_MatchParent extends PM25View {
             case EXACTLY:
                 // ----
                 // 指定 MATCH_PARENT，MeasureSpec.getMode 会返回 EXACTLY
-//                Log.w(TAG, "width mode == exactly");
-//                w = getMeasuredWidth();
+                Log.w(TAG, "width mode == exactly");
+                w = getMeasuredWidth();
                 break;
         }
 
@@ -58,10 +62,12 @@ public class PM25View_Practice_Exactly_MatchParent extends PM25View {
             case EXACTLY:
                 // ----
                 // 指定 MATCH_PARENT，MeasureSpec.getMode 会返回 EXACTLY
-//                Log.w(TAG, "height mode == exactly");
-//                h = getMeasuredHeight();
+                Log.w(TAG, "height mode == exactly");
+                h = getMeasuredHeight();
                 break;
         }
+
+        Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
 
         // 强制宽高相等
         if (h > w) {

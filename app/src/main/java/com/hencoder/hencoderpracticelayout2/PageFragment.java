@@ -47,4 +47,10 @@ public class PageFragment extends Fragment {
             practiceLayoutRes = args.getInt("practiceLayoutRes");
         }
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+    }
 }

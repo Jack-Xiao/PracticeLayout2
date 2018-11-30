@@ -50,8 +50,8 @@ public class PM25View_Practice_Unspecified extends PM25View {
                 // ----
                 // 横向的ScrollView 自定义控件
                 // 不限定宽度，可以任意指定值
-                // w = 200;
-                // w = 3000;
+                 w = 200;
+                 w = 3000;
                 break;
             case MeasureSpec.AT_MOST:
                 // ----

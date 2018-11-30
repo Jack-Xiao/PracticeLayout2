@@ -15,6 +15,7 @@ import static android.view.View.MeasureSpec.EXACTLY;
 public class PM25View_Sample_Exactly_200dp extends PM25View {
     private int count = 0;
 
+
     public PM25View_Sample_Exactly_200dp(Context context) {
         super(context);
     }

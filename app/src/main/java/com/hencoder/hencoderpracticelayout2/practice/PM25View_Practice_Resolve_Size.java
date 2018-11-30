@@ -10,12 +10,12 @@ import static android.view.View.MeasureSpec.EXACTLY;
 
 /**
  * 用 resolveSize 使计算结果符合用户限制。
- *
+ * <p>
  * 可以关注下面注释中带有 ---- 的部分
  */
 
 public class PM25View_Practice_Resolve_Size extends PM25View {
-    private static final String TAG = "HenCoder ResolveSize";
+    private static final String TAG = "HenCoder_ResolveSize";
 
     private int count = 0;
 
@@ -45,7 +45,7 @@ public class PM25View_Practice_Resolve_Size extends PM25View {
                 break;
             case EXACTLY:
                 Log.w(TAG, "width mode == exactly");
-                // w = getMeasuredWidth();
+                w = getMeasuredWidth();
                 // ----
                 // 不管设定的是 100dp 还是多少dp 我都给他设定成 1080 像素
                 // 这样就会出现扔物线视频当中提到的： 会发生什么？ bug！
@@ -68,8 +68,8 @@ public class PM25View_Practice_Resolve_Size extends PM25View {
 
         // ----
         // 打开resolveSize 则符合用户设定
-        // w = resolveSize(w, widthMeasureSpec);
-        // h = resolveSize(h, widthMeasureSpec);
+         w = resolveSize(w, widthMeasureSpec);
+         h = resolveSize(h, widthMeasureSpec);
 
         setMeasuredDimension(w, h);
         // 这句代码调用了

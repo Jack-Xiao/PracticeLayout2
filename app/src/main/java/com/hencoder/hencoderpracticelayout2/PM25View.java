@@ -12,7 +12,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-
 import static android.view.View.MeasureSpec.EXACTLY;
 
 /**
@@ -21,7 +20,7 @@ import static android.view.View.MeasureSpec.EXACTLY;
 
 public class PM25View extends View {
 
-    protected static final String TAG = "HenCoder";
+    protected static final String TAG = "HenCoder_25View";
 
     private static int mcount = 0;
 
@@ -60,45 +59,47 @@ public class PM25View extends View {
         invalidate();
     }
 
-//    @Override
-//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-//        ++mcount;
-//        Log.w("xx", "mcount == " + mcount);
-//
-//
-//        int w = getMeasuredWidth();
-//        int h = getMeasuredHeight();
-//
-//        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-//        switch (widthMode) {
-//            case MeasureSpec.UNSPECIFIED:
-//                Log.w("xx", "width mode == unspecified");
-//                break;
-//            case MeasureSpec.AT_MOST:
-//                Log.w("xx", "width mode == at most");
-//                break;
-//            case EXACTLY:
-//                Log.w("xx", "width mode == exactly");
-//                break;
-//        }
-//
-//        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-//        switch (heightMode) {
-//            case MeasureSpec.UNSPECIFIED:
-//                Log.w("xx", "height mode == unspecified");
-//                break;
-//            case MeasureSpec.AT_MOST:
-//                Log.w("xx", "height mode == at most");
-//                break;
-//            case EXACTLY:
-//                Log.w("xx", "height mode == exactly");
-//                break;
-//        }
-//
-//
-//        setSizes(w, h);
-//    }
+
+    //测量
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        ++mcount;
+        Log.w("xx", "mcount == " + mcount);
+
+
+        int w = getMeasuredWidth();
+        int h = getMeasuredHeight();
+
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        switch (widthMode) {
+            case MeasureSpec.UNSPECIFIED:
+                Log.w("xx", "width mode == unspecified");
+                break;
+            case MeasureSpec.AT_MOST:
+                Log.w("xx", "width mode == at most");
+                break;
+            case EXACTLY:
+                Log.w("xx", "width mode == exactly");
+                break;
+        }
+
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        switch (heightMode) {
+            case MeasureSpec.UNSPECIFIED:
+                Log.w("xx", "height mode == unspecified");
+                break;
+            case MeasureSpec.AT_MOST:
+                Log.w("xx", "height mode == at most");
+                break;
+            case EXACTLY:
+                Log.w("xx", "height mode == exactly");
+                break;
+        }
+
+
+        setSizes(w, h);
+    }
 
 
     /**
@@ -110,7 +111,6 @@ public class PM25View extends View {
     }
 
     /**
-     *
      * @param width
      * @param height
      */
@@ -184,10 +184,10 @@ public class PM25View extends View {
 
 
         int r = (right - left) / 2;
-        double a0 = (180 - (double)mStartAngle) / 180 * Math.PI;
+        double a0 = (180 - (double) mStartAngle) / 180 * Math.PI;
         addEndText(canvas, "0", r, a0);
 
-        double a500 = ((double)mStartAngle) / 180 * Math.PI;
+        double a500 = ((double) mStartAngle) / 180 * Math.PI;
         addEndText(canvas, "500", r, a500);
 
         String pollution = String.valueOf((int) pollutionValue);
@@ -195,7 +195,7 @@ public class PM25View extends View {
         int pollutionWidth = rect.width();
         int pollutionHeight = rect.height();
         int pollutionX = mCX - pollutionWidth / 2;
-        int pollutionY = mCY + pollutionHeight / 2 ;
+        int pollutionY = mCY + pollutionHeight / 2;
         canvas.drawText(pollution, pollutionX, pollutionY, mPaint4);
 
 
